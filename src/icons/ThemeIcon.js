@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import themeSwitchFunc from "../components/ThemeFunc";
 // FONT AWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +14,27 @@ const ThemeIcon = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const dispatch = useDispatch();
 
+  // LOCAL SOTRAGE RELOAD
+  useEffect(() => {
+    let data = window.localStorage.getItem("THEME");
+    let parsedData = JSON.parse(data);
+
+    let saveThemeFunc = () => {
+      if (parsedData === "dark-theme") {
+        return dispatch(setDark());
+      } else if (parsedData === "light-theme") {
+        return dispatch(setLight());
+      } else if (parsedData === "custom-theme") {
+        return dispatch(setCustom());
+      }
+    };
+    saveThemeFunc();
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("THEME", JSON.stringify(theme));
+  }, [theme]);
+
   return (
     <section className="theme-icon-section">
       <Dropdown>
@@ -21,19 +43,13 @@ const ThemeIcon = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#/darkTheme" onClick={() => dispatch(setDark())}>
+          <Dropdown.Item onClick={() => dispatch(setDark())}>
             Dark Theme
           </Dropdown.Item>
-          <Dropdown.Item
-            href="#/lightTheme"
-            onClick={() => dispatch(setLight())}
-          >
+          <Dropdown.Item onClick={() => dispatch(setLight())}>
             Light Theme
           </Dropdown.Item>
-          <Dropdown.Item
-            href="#/customTheme"
-            onClick={() => dispatch(setCustom())}
-          >
+          <Dropdown.Item onClick={() => dispatch(setCustom())}>
             Custom Theme
           </Dropdown.Item>
         </Dropdown.Menu>
