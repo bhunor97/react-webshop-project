@@ -1,4 +1,5 @@
 import React from "react";
+import themeSwitchFunc from "../components/ThemeFunc";
 // FONT AWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleHalfStroke } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +16,7 @@ const ThemeIcon = () => {
   return (
     <section className="theme-icon-section">
       <Dropdown>
-        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+        <Dropdown.Toggle variant={themeSwitchFunc(theme)} id="dropdown-basic">
           <FontAwesomeIcon icon={faCircleHalfStroke} />
         </Dropdown.Toggle>
 
