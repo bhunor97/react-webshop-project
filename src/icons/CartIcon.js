@@ -4,9 +4,9 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const CartIcon = () => {
   return (
-    <section>
+    <>
       <FontAwesomeIcon icon={faShoppingCart} />
-    </section>
+    </>
   );
 };
 

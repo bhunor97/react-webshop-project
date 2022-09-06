@@ -15,7 +15,7 @@ const MyNav = () => {
   let theme = useSelector((state) => state.setTheme.theme);
 
   return (
-    <section>
+    <nav>
       <Navbar
         collapseOnSelect
         expand="lg"
@@ -51,7 +51,7 @@ const MyNav = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </section>
+    </nav>
   );
 };
 

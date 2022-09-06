@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import themeSwitchFunc from "../components/ThemeFunc";
 // FONT AWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

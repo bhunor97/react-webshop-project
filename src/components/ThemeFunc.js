@@ -6,6 +6,6 @@ export default function themeSwitchFunc(theme) {
     return "light";
   } else if (theme === "custom-theme") {
     // CHANGE THIS
-    return "primary";
+    return "warning";
   }
 }

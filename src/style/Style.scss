@@ -8,11 +8,19 @@ main {
   height: 100vh;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
 h1 {
   font-size: 3rem;
 }
 
-// background themes
+// THEMES
 .dark-theme {
   background-color: #333;
   color: white;
@@ -21,6 +29,11 @@ h1 {
 .light-theme {
   background-color: #999;
   color: #333;
+}
+
+.custom-theme {
+  background-color: #fff;
+  color: #000;
 }
 
 // bootstrap drowdown arrow off for icon
