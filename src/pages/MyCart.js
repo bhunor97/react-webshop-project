@@ -3,7 +3,7 @@ import HomeButton from "../components/HomeButton";
 
 const MyCart = () => {
   return (
-    <section>
+    <section className="my-cart-section">
       <h1>My Cart</h1>
       <HomeButton />
     </section>

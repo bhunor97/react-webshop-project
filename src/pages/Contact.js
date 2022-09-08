@@ -3,7 +3,7 @@ import HomeButton from "../components/HomeButton";
 
 const Contact = () => {
   return (
-    <section>
+    <section className="contact-section">
       <h1>Contact</h1>
       <HomeButton />
     </section>

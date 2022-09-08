@@ -8,9 +8,9 @@ import { setDark, setLight, setCustom } from "../redux/themeSlice";
 const Home = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   return (
-    <section>
+    <section className="home-section">
       <h1>Home</h1>
-      <span>The current theme is: </span>
+      <h4>The current theme is: </h4>
       <h2>{theme}</h2>
     </section>
   );

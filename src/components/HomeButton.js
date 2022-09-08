@@ -10,7 +10,7 @@ const HomeButton = () => {
   const theme = useSelector((state) => state.setTheme.theme);
 
   return (
-    <>
+    <div className="home-btn-div">
       <Button
         as={Link}
         to="/"
@@ -20,7 +20,7 @@ const HomeButton = () => {
       >
         Back To The Home Page
       </Button>
-    </>
+    </div>
   );
 };
 

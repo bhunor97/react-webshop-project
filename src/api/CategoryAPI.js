@@ -1,16 +1,29 @@
-import { current } from "@reduxjs/toolkit";
 import { useState, useEffect } from "react";
+// COMPONENTS
+import { spinnerFunc } from "../components/MySpinner";
+// REACT-ROUTER
+import { Link } from "react-router-dom";
+// REACT-BOOTSTRAP
+import Card from "react-bootstrap/Card";
+// REDUX-TOOLKIT
+import { useSelector } from "react-redux";
+import themeSwitchFunc from "../components/ThemeFunc";
 
-const CategoryAPI = () => {
+const CategoryAPI = ({ loading, setLoading }) => {
   const [currentProduct, setCurrentProduct] = useState([]);
 
+  let theme = useSelector((state) => state.setTheme.theme);
+
+  // USEEFFECT FETCH
   useEffect(() => {
-    // USE EFFECT FETCH
     const getCategories = async () => {
-      const URL = " https://api.escuelajs.co/api/v1/categories";
+      // setLoading(true);
+      const URL = "https://fakestoreapi.com/products/categories";
       let categories = await fetch(URL)
+        .then(setLoading(false))
         .then((response) => response.json())
         .catch((err) => {
+          setLoading(true);
           console.log(err.message);
         });
       setCurrentProduct(categories);
@@ -18,25 +31,65 @@ const CategoryAPI = () => {
     getCategories();
   }, []);
 
+  // IMAGE VARIABLES
+  const electronicsImg =
+    "https://images.unsplash.com/photo-1588508065123-287b28e013da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+  const jeweleryImg =
+    "https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80";
+  const mensClothImg =
+    "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80";
+  const womensclothImg =
+    "https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=744&q=80";
+
+  // IMAGE FUNC
+  const categoryImgFunc = (element) => {
+    if (element === "electronics") {
+      return electronicsImg;
+    }
+    if (element === "jewelery") {
+      return jeweleryImg;
+    }
+    if (element === "men's clothing") {
+      return mensClothImg;
+    }
+    if (element === "women's clothing") {
+      return womensclothImg;
+    }
+  };
+
   // MAPPING CATEGORIES
-  let categoryMap = () => {
-    if (currentProduct === []) {
-      return <div>Loading</div>;
-    } else {
+  let categoryMapFunc = () => {
+    if (currentProduct) {
       let mapped = currentProduct.map((element) => {
         return (
-          <div key={element.id}>{element.name != "Futbol" && element.name}</div>
+          <Link to="#" className="category-card-links">
+            <div className="rendered-bs-card " key={Math.random()}>
+              <Card className={`bg-${themeSwitchFunc(theme)} shadow border-0`}>
+                <Card.Body>
+                  <Card.Text>{element}</Card.Text>
+                </Card.Body>
+                <Card.Img
+                  variant="bottom"
+                  className="category-card-img"
+                  src={categoryImgFunc(element)}
+                />
+              </Card>
+            </div>
+          </Link>
         );
       });
       return mapped;
+    } else {
+      return;
     }
   };
-  console.log(categoryMap());
 
-  return <section>{categoryMap()}</section>;
+  return (
+    <>
+      {spinnerFunc(loading)}
+      <div className="category-container">{categoryMapFunc()}</div>
+    </>
+  );
 };
 
 export default CategoryAPI;
-
-// You can get the products by category adding the categoryID as a parameter to /categories/{categoryID}/products
-// [GET] https://api.escuelajs.co/api/v1/categories/1/products

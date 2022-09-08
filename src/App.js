@@ -1,9 +1,9 @@
 import React from "react";
+import "./style/Style.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style/Style.scss";
 // PAGES
 import SharedMain from "./pages/SharedMain";
 import Home from "./pages/Home";

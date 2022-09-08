@@ -5,14 +5,13 @@ import CategoryAPI from "../api/CategoryAPI";
 import HomeButton from "../components/HomeButton";
 
 const Products = () => {
+  // LIFETD LOADING-SPINNER STATE
+  const [loading, setLoading] = useState(true);
+
   return (
-    <section>
-      <h1>Products</h1>
-      <CategoryAPI
-      // currentProduct={currentProduct}
-      // setCurrentProduct={setCurrentProduct}
-      />
-      <HomeButton />
+    <section className="products-section">
+      {loading === true ? null : <h1>Products</h1>}
+      <CategoryAPI loading={loading} setLoading={setLoading} />
     </section>
   );
 };

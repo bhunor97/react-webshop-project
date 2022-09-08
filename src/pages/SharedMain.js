@@ -10,19 +10,11 @@ const SharedMain = () => {
   let theme = useSelector((state) => state.setTheme.theme);
 
   return (
-    <main
-      className={
-        theme === "dark-theme"
-          ? "dark-theme"
-          : "light-theme"
-          ? "custom-theme"
-          : "custom-theme"
-      }
-    >
+    <section className={theme}>
       <MyNav />
       <Outlet />
       <ThemeIcon />
-    </main>
+    </section>
   );
 };
 

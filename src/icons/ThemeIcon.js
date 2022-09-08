@@ -36,7 +36,7 @@ const ThemeIcon = () => {
   }, [theme]);
 
   return (
-    <section className="theme-icon-section">
+    <div className="theme-icon-section">
       <Dropdown>
         <Dropdown.Toggle variant={themeSwitchFunc(theme)} id="dropdown-basic">
           <FontAwesomeIcon icon={faCircleHalfStroke} />
@@ -54,7 +54,7 @@ const ThemeIcon = () => {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-    </section>
+    </div>
   );
 };
 
