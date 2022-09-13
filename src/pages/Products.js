@@ -3,14 +3,20 @@ import { useState } from "react";
 import CategoryAPI from "../api/CategoryAPI";
 // BOOTSTRAP
 import HomeButton from "../components/HomeButton";
+// REDUX-TOOLKIT
+import { useSelector } from "react-redux";
 
 const Products = () => {
-  // LIFETD LOADING-SPINNER STATE
+  const category = useSelector((state) => state.getCategory.category);
+
+  // console.log(category);
+
+  // LIFTED LOADING-SPINNER STATE
   const [loading, setLoading] = useState(true);
 
   return (
     <section className="products-section">
-      {loading === true ? null : <h1>Products</h1>}
+      <h1>Products</h1>
       <CategoryAPI loading={loading} setLoading={setLoading} />
     </section>
   );

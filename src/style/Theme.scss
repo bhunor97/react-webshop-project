@@ -1,0 +1,26 @@
+// BACKGROUND THEMES
+.dark-theme {
+  background-color: #333;
+  color: white;
+  min-height: 100vh;
+}
+
+.light-theme {
+  background-color: #999;
+  color: #333;
+  min-height: 100vh;
+}
+
+.custom-theme {
+  background-color: #fff;
+  color: #000;
+  min-height: 100vh;
+}
+
+// THEME ICON
+.theme-icon-section {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 1rem;
+}

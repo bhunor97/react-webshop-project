@@ -1,5 +1,8 @@
 import React from "react";
-import "./style/Style.scss";
+// SASS
+import "./style/Resets.scss";
+import "./style/Category.scss";
+import "./style/Theme.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP
@@ -12,6 +15,10 @@ import Products from "./pages/Products";
 import MyCart from "./pages/MyCart";
 import Error from "./pages/Error";
 import Login from "./pages/Login.js";
+import Electronics from "./pages/categories/Electronics";
+import MensCloth from "./pages/categories/MensCloth";
+import WomensCloth from "./pages/categories/WomensCloth";
+import Jewelery from "./pages/categories/Jewelery";
 // REDUX-TOOLKIT
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
@@ -26,8 +33,24 @@ const App = () => {
               <Route index element={<Home />}></Route>
               <Route path="contact" element={<Contact />}></Route>
               <Route path="products" element={<Products />}></Route>
+              {/* PRODUCT-CATEGORIES */}
+              <Route
+                path="products/electronics"
+                element={<Electronics />}
+              ></Route>
+              <Route
+                path="products/men's%20clothing"
+                element={<MensCloth />}
+              ></Route>
+              <Route
+                path="products/women's%20clothing"
+                element={<WomensCloth />}
+              ></Route>
+              <Route path="products/jewelery" element={<Jewelery />}></Route>
+              {/* NAV-BAR */}
               <Route path="mycart" element={<MyCart />}></Route>
               <Route path="login" element={<Login />}></Route>
+              {/* ERROR */}
               <Route path="*" element={<Error />}></Route>
             </Route>
           </Routes>

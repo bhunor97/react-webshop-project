@@ -11,13 +11,3 @@ const MySpinner = () => {
   );
 };
 export default MySpinner;
-
-export const spinnerFunc = (loadingState) => {
-  if (loadingState === true) {
-    return (
-      <div className="spinner-div">
-        <MySpinner />
-      </div>
-    );
-  }
-};

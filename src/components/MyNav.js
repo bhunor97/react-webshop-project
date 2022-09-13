@@ -21,7 +21,7 @@ const MyNav = () => {
         expand="lg"
         bg={themeSwitchFunc(theme)}
         variant={themeSwitchFunc(theme)}
-        // className="shadow"
+        className="shadow"
       >
         <Container>
           <Navbar.Brand>WebShop</Navbar.Brand>

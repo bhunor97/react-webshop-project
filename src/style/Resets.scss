@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.home-section,
+.products-section,
+.contact-section,
+.login-section,
+.my-cart-section,
+.electronics-section,
+.jewelery-section,
+.mens-clothing-section,
+.womens-clothing-section {
+  h1,
+  h2,
+  h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// BOOTSTRAP NAV ARROW OFF
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+// SPINNER
+.spinner-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  padding: 10rem;
+}
+
+// HOME BUTTON
+.home-btn-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
