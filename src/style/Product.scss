@@ -1,0 +1,23 @@
+.rendered-product-table {
+  width: 30rem;
+  margin: auto;
+  padding: 2rem 0 2rem 0;
+  cursor: pointer;
+  td {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .rendered-product-title {
+    font-size: 20px;
+  }
+  .rendered-product-title:hover {
+    text-decoration: underline;
+  }
+  .rendered-product-image {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+  }
+}

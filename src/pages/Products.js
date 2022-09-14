@@ -7,17 +7,13 @@ import HomeButton from "../components/HomeButton";
 import { useSelector } from "react-redux";
 
 const Products = () => {
-  const category = useSelector((state) => state.getCategory.category);
-
-  // console.log(category);
-
-  // LIFTED LOADING-SPINNER STATE
-  const [loading, setLoading] = useState(true);
+  const loading = useSelector((state) => state.getLoading.loading);
 
   return (
     <section className="products-section">
+      {/* {!loading && <h1>Products</h1>} */}
       <h1>Products</h1>
-      <CategoryAPI loading={loading} setLoading={setLoading} />
+      <CategoryAPI />
     </section>
   );
 };

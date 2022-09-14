@@ -3,6 +3,8 @@ import React from "react";
 import "./style/Resets.scss";
 import "./style/Category.scss";
 import "./style/Theme.scss";
+import "./style/Product.scss";
+import "./style/Spinner.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP

@@ -2,66 +2,80 @@ import React from "react";
 import { useState, useEffect } from "react";
 // COMPONENTS
 import themeSwitchFunc from "../components/ThemeFunc";
+import MySpinner from "../components/MySpinner";
 // BOOTSTRAP
 import Table from "react-bootstrap/Table";
 // REDUX-TOOLKIT
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { switchLoadingOn, swithcLoadingOff } from "../redux/loadingSlice";
 
 const ProductAPI = () => {
   const [currentProducts, setCurrentProducts] = useState([]);
+
+  const dispatch = useDispatch();
   const category = useSelector((state) => state.getCategory.category);
   const theme = useSelector((state) => state.setTheme.theme);
+  const loading = useSelector((state) => state.getLoading.loading);
 
   // USE EFFECT FETCH
   useEffect(() => {
     const URL = `https://fakestoreapi.com/products/category/${category}`;
+    dispatch(switchLoadingOn());
 
     const getProducts = async () => {
       let products = await fetch(URL)
         .then((response) => response.json())
-        .catch((err) => console.log(err.message));
+        .catch((err) => console.log(err.message))
+        .finally(() => dispatch(swithcLoadingOff()));
       setCurrentProducts(products);
     };
 
     getProducts();
   }, [category]);
 
-  console.log(currentProducts);
-
   // MAPPING PRODUCTS
   const productsMapped = () => {
     return currentProducts.map((element) => {
       return (
-        <Table
-          striped
-          bordered
-          hover
-          variant={`${themeSwitchFunc(theme)}`}
-          key={element.id}
-        >
-          <tbody>
-            <tr>
-              <td>{element.title}</td>
-            </tr>
-            <tr>
-              <td>{element.image}</td>
-            </tr>
-            <tr>
-              <td>{element.description}</td>
-            </tr>
-            <tr>
-              <td>{element.price}</td>
-            </tr>
-            <tr>
-              <td>{element.rating.rate}</td>
-            </tr>
-          </tbody>
-        </Table>
+        <div className="rendered-product-table">
+          <Table
+            striped
+            bordered
+            hover
+            variant={`${themeSwitchFunc(theme)}`}
+            key={element.id}
+            className="shadow"
+          >
+            <tbody>
+              <tr>
+                <td className="rendered-product-title">{element.title}</td>
+              </tr>
+              <tr>
+                <td>
+                  <img
+                    src={element.image}
+                    alt="product-image"
+                    className="rendered-product-image"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>{element.description}</td>
+              </tr>
+              <tr>
+                <td>Price: ${element.price}</td>
+              </tr>
+              <tr>
+                <td>Rating: 10 / {element.rating.rate}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
       );
     });
   };
 
-  return <div>{productsMapped()}</div>;
+  return <div>{loading ? <MySpinner /> : productsMapped()}</div>;
 };
 
 export default ProductAPI;

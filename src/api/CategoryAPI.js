@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 // COMPONENTS
-import { spinnerFunc } from "../components/SpinnerFunc";
+import MySpinner from "../components/MySpinner";
 // REACT-ROUTER
 import { Link } from "react-router-dom";
 // REACT-BOOTSTRAP
@@ -8,7 +8,8 @@ import Card from "react-bootstrap/Card";
 // REDUX-TOOLKIT
 import { useSelector, useDispatch } from "react-redux";
 import themeSwitchFunc from "../components/ThemeFunc";
-import { setCategory } from "../redux/categorySlice";
+import { setSelectedCategory } from "../redux/categorySlice";
+import { swithcLoadingOff, switchLoadingOn } from "../redux/loadingSlice";
 
 // IMAGE VARIABLES
 const electronicsImg =
@@ -20,25 +21,28 @@ const mensClothImg =
 const womensclothImg =
   "https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=744&q=80";
 
-const CategoryAPI = ({ loading, setLoading }) => {
+const CategoryAPI = () => {
   const [currentCategories, setCurrentCategories] = useState([]);
 
   const theme = useSelector((state) => state.setTheme.theme);
+  const loading = useSelector((state) => state.getLoading.loading);
   const dispatch = useDispatch();
+
+  console.log(loading);
 
   // USEEFFECT FETCH
   useEffect(() => {
     const URL = "https://fakestoreapi.com/products/categories";
+    dispatch(switchLoadingOn());
 
     const getCategories = async () => {
       const categories = await fetch(URL)
         .then((response) => response.json())
-        .then(setLoading(false))
-        .catch((err) => {
-          console.log(err.message);
-        });
+        .catch((err) => console.log(err.message))
+        .finally(() => dispatch(swithcLoadingOff()));
       setCurrentCategories(categories);
     };
+
     getCategories();
   }, []);
 
@@ -60,46 +64,45 @@ const CategoryAPI = ({ loading, setLoading }) => {
 
   // SELECTED CATEGORY
   const selectCategoryFunc = (x) => {
-    dispatch(setCategory(x));
+    dispatch(setSelectedCategory(x));
   };
 
-  // MAPPING CATEGORIES
+  // MAPPING CATEGORIES INTO A LINK / BS CARD
   const categoryMapFunc = () => {
-    if (currentCategories) {
-      const mapped = currentCategories.map((element) => {
-        return (
-          <Link
-            to={`${element}`}
-            className="category-card-links"
-            key={Math.random()}
-            onClick={() => selectCategoryFunc(element)}
-          >
-            <div className="rendered-bs-card">
-              <Card className={`bg-${themeSwitchFunc(theme)} shadow border-0`}>
-                <Card.Body>
-                  <Card.Text>{element}</Card.Text>
-                </Card.Body>
-                <Card.Img
-                  variant="bottom"
-                  className="category-card-img"
-                  src={categoryImgFunc(element)}
-                />
-              </Card>
-            </div>
-          </Link>
-        );
-      });
-      return mapped;
-    } else {
-      return;
-    }
+    const mapped = currentCategories.map((element) => {
+      return (
+        <Link
+          to={`${element}`}
+          className="category-card-links"
+          key={Math.random()}
+          onClick={() => selectCategoryFunc(element)}
+        >
+          <div className="rendered-bs-card">
+            <Card className={`bg-${themeSwitchFunc(theme)} shadow border-0`}>
+              <Card.Body>
+                <Card.Text>{element}</Card.Text>
+              </Card.Body>
+              <Card.Img
+                variant="bottom"
+                className="category-card-img"
+                src={categoryImgFunc(element)}
+              />
+            </Card>
+          </div>
+        </Link>
+      );
+    });
+    return mapped;
   };
 
   // RENDER
   return (
     <>
-      {spinnerFunc(loading)}
-      <div className="category-container">{categoryMapFunc()}</div>
+      {loading ? (
+        <MySpinner />
+      ) : (
+        <div className="category-container">{categoryMapFunc()}</div>
+      )}
     </>
   );
 };

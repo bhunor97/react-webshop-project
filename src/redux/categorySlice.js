@@ -1,16 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// FOR THE SELECTED CATEGORY
 export const categorySlice = createSlice({
   name: "categoryChange",
   initialState: {
     category: "",
   },
   reducers: {
-    setCategory: (state, action) => {
+    setSelectedCategory: (state, action) => {
       state.category = action.payload;
     },
   },
 });
 
-export const { setCategory } = categorySlice.actions;
+export const { setSelectedCategory } = categorySlice.actions;
 export default categorySlice.reducer;
