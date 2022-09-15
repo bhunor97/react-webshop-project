@@ -28,8 +28,6 @@ const CategoryAPI = () => {
   const loading = useSelector((state) => state.getLoading.loading);
   const dispatch = useDispatch();
 
-  console.log(loading);
-
   // USEEFFECT FETCH
   useEffect(() => {
     const URL = "https://fakestoreapi.com/products/categories";

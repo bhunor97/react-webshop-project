@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // COMPONENTS
 import themeSwitchFunc from "../components/ThemeFunc";
 import MySpinner from "../components/MySpinner";
+import AddToCartBtn from "../components/AddToCartBtn";
 // BOOTSTRAP
 import Table from "react-bootstrap/Table";
 // REDUX-TOOLKIT
@@ -17,6 +18,8 @@ const ProductAPI = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const loading = useSelector((state) => state.getLoading.loading);
 
+  console.log(category);
+
   // USE EFFECT FETCH
   useEffect(() => {
     const URL = `https://fakestoreapi.com/products/category/${category}`;
@@ -29,7 +32,6 @@ const ProductAPI = () => {
         .finally(() => dispatch(swithcLoadingOff()));
       setCurrentProducts(products);
     };
-
     getProducts();
   }, [category]);
 
@@ -43,10 +45,9 @@ const ProductAPI = () => {
             bordered
             hover
             variant={`${themeSwitchFunc(theme)}`}
-            key={element.id}
             className="shadow"
           >
-            <tbody>
+            <tbody key={element.id}>
               <tr>
                 <td className="rendered-product-title">{element.title}</td>
               </tr>
@@ -67,6 +68,9 @@ const ProductAPI = () => {
               </tr>
               <tr>
                 <td>Rating: 10 / {element.rating.rate}</td>
+              </tr>
+              <tr>
+                <AddToCartBtn />
               </tr>
             </tbody>
           </Table>
