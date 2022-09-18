@@ -13,8 +13,15 @@ export const loginDetailSlice = createSlice({
     setEmail: (state, action) => {
       state.email = action.payload;
     },
+    resetName: (state) => {
+      state.name = "";
+    },
+    resetEmail: (state) => {
+      state.email = "";
+    },
   },
 });
 
-export const { setName, setEmail } = loginDetailSlice.actions;
+export const { setName, setEmail, resetName, resetEmail } =
+  loginDetailSlice.actions;
 export default loginDetailSlice.reducer;

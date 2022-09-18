@@ -3,6 +3,8 @@ import React from "react";
 import CartIcon from "../icons/CartIcon";
 import themeSwitchFunc from "./ThemeFunc";
 import GoogleOauthLogin from "../oauth/GoogleOauthLogin";
+import UserIcon from "../icons/UserIcon";
+import LogOutIcon from "../icons/LogOutIcon";
 // REACT ROUTER
 import { NavLink } from "react-router-dom";
 // BOOTSTRAP
@@ -13,7 +15,8 @@ import Navbar from "react-bootstrap/Navbar";
 import { useSelector } from "react-redux";
 
 const MyNav = () => {
-  let theme = useSelector((state) => state.setTheme.theme);
+  const theme = useSelector((state) => state.setTheme.theme);
+  const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
 
   return (
     <nav>
@@ -40,9 +43,13 @@ const MyNav = () => {
               </Nav.Link>
             </Nav>
             <Nav className="nav-right-icons">
-              {/* GOOGLE OAUTH  LOGIN */}
+              {/* GOOGLE LOGIN */}
               <Nav.Link>
                 <GoogleOauthLogin />
+              </Nav.Link>
+              <Nav.Link disabled>
+                {/* USER LOGGED IN / LOG OUT ICONS */}
+                {isSignedIn === true ? <LogOutIcon /> : <UserIcon />}
               </Nav.Link>
               <Nav.Link as={NavLink} to="/mycart">
                 My cart
@@ -57,5 +64,8 @@ const MyNav = () => {
     </nav>
   );
 };
+{
+  /* <UserIcon /> */
+}
 
 export default MyNav;

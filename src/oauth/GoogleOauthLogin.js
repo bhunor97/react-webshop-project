@@ -1,11 +1,13 @@
 import React from "react";
-import { useEffect } from "react";
-// FONT AWESOME
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // REDUX-TOOLKIT
 import { useDispatch, useSelector } from "react-redux";
 import { setSignIn, setSignOff } from "../redux/loginStatusSlice";
-import { setName, setEmail } from "../redux/loginDetailsSlice";
+import {
+  setName,
+  setEmail,
+  resetName,
+  resetEmail,
+} from "../redux/loginDetailsSlice";
 // FIREBASE
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -16,6 +18,7 @@ const GoogleOauthLogin = () => {
   const loginDetailsName = useSelector((state) => state.getLoginDetails.name);
   const loginDetailsEmail = useSelector((state) => state.getLoginDetails.email);
 
+  // SIGN IN FUNC
   const mySignInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -32,13 +35,21 @@ const GoogleOauthLogin = () => {
         console.log(error);
       });
   };
-  // console.log(isSignedIn);
-  // console.log(loginDetailsName);
-  // console.log(loginDetailsEmail);
+
+  // SIGN OUT FUNC
+  const mySignOut = () => {
+    dispatch(setSignOff());
+    dispatch(resetName());
+    dispatch(resetEmail());
+  };
+
+  // RENDER
   return (
     <>
       {isSignedIn === true ? (
-        <div className="text-decoration-none">Log Out</div>
+        <div className="text-decoration-none" onClick={mySignOut}>
+          Log Out
+        </div>
       ) : (
         <div className="text-decoration-none" onClick={mySignInWithGoogle}>
           Log In
