@@ -6,17 +6,24 @@ import CartIcon from "../icons/CartIcon";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
+// FONT AWESOME
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 // REDUX-TOOLKIT
 import { useSelector } from "react-redux";
 
 const AddToCartBtn = () => {
-  // bootstrap-tooltip
-  const renderTooltip = (props) => (
+  const theme = useSelector((state) => state.setTheme.theme);
+
+  // NOT LOGGED TOOLTIP
+  const notLoggedTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Please log-in first!
+      <span>
+        <FontAwesomeIcon icon={faLock} className="px-1" />
+      </span>
     </Tooltip>
   );
-  const theme = useSelector((state) => state.setTheme.theme);
 
   return (
     <div className="d-grid gap-2">
@@ -24,7 +31,7 @@ const AddToCartBtn = () => {
       <OverlayTrigger
         placement="right"
         delay={{ show: 200, hide: 400 }}
-        overlay={renderTooltip}
+        overlay={notLoggedTooltip}
       >
         <Button variant={themeSwitchFunc(theme)} size="lg">
           Add To Cart

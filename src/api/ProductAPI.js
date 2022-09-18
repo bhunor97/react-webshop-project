@@ -18,8 +18,6 @@ const ProductAPI = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const loading = useSelector((state) => state.getLoading.loading);
 
-  console.log(category);
-
   // USE EFFECT FETCH
   useEffect(() => {
     const URL = `https://fakestoreapi.com/products/category/${category}`;

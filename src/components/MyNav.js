@@ -2,6 +2,7 @@ import React from "react";
 // COMPONENTS
 import CartIcon from "../icons/CartIcon";
 import themeSwitchFunc from "./ThemeFunc";
+import GoogleOauthLogin from "../oauth/GoogleOauthLogin";
 // REACT ROUTER
 import { NavLink } from "react-router-dom";
 // BOOTSTRAP
@@ -39,8 +40,9 @@ const MyNav = () => {
               </Nav.Link>
             </Nav>
             <Nav className="nav-right-icons">
-              <Nav.Link as={NavLink} to="/login">
-                Log In
+              {/* GOOGLE OAUTH  LOGIN */}
+              <Nav.Link>
+                <GoogleOauthLogin />
               </Nav.Link>
               <Nav.Link as={NavLink} to="/mycart">
                 My cart

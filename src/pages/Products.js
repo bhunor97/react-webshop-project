@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 const Products = () => {
   const loading = useSelector((state) => state.getLoading.loading);
+  const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
 
   return (
     <section className="products-section">

@@ -7,6 +7,7 @@ import "./style/Product.scss";
 import "./style/Spinner.scss";
 import "./style/Login.scss";
 import "./style/HomeButton.scss";
+import "./style/Carousel.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP
