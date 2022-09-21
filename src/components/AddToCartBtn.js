@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 
 const AddToCartBtn = () => {
   const theme = useSelector((state) => state.setTheme.theme);
+  const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
 
   // NOT LOGGED TOOLTIP
   const notLoggedTooltip = (props) => (
@@ -27,19 +28,29 @@ const AddToCartBtn = () => {
 
   return (
     <div className="d-grid gap-2">
-      {/* bootstrap-tooltip */}
-      <OverlayTrigger
-        placement="right"
-        delay={{ show: 200, hide: 400 }}
-        overlay={notLoggedTooltip}
-      >
+      {isSignedIn === true ? (
+        // IF SIGNED IN --> NO TOOLTIP
         <Button variant={themeSwitchFunc(theme)} size="lg">
           Add To Cart
           <span className="add-to-cart-icon-span p-2 ">
             <CartIcon />
           </span>
         </Button>
-      </OverlayTrigger>
+      ) : (
+        // IF NOT SIGNED IN --> TOOLTIP
+        <OverlayTrigger
+          placement="right"
+          delay={{ show: 200, hide: 400 }}
+          overlay={notLoggedTooltip}
+        >
+          <Button variant={themeSwitchFunc(theme)} size="lg">
+            Add To Cart
+            <span className="add-to-cart-icon-span p-2 ">
+              <CartIcon />
+            </span>
+          </Button>
+        </OverlayTrigger>
+      )}
     </div>
   );
 };

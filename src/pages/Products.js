@@ -12,7 +12,6 @@ const Products = () => {
 
   return (
     <section className="products-section">
-      {/* {!loading && <h1>Products</h1>} */}
       <h1>Products</h1>
       <CategoryAPI />
     </section>

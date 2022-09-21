@@ -1,3 +1,4 @@
 - product pages -> page reload fetch fix
 - If NOT logged in -> tooltip shows at add to cart 
 | if YES then just then just the button
+- cards / products responsive layout --> React Bootstrap: cards / grid cards

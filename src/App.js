@@ -19,7 +19,6 @@ import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 import MyCart from "./pages/MyCart";
 import Error from "./pages/Error";
-import Login from "./pages/Login.js";
 import Electronics from "./pages/categories/Electronics";
 import MensCloth from "./pages/categories/MensCloth";
 import WomensCloth from "./pages/categories/WomensCloth";
@@ -54,7 +53,6 @@ const App = () => {
               <Route path="products/jewelery" element={<Jewelery />}></Route>
               {/* NAV-BAR */}
               <Route path="mycart" element={<MyCart />}></Route>
-              <Route path="login" element={<Login />}></Route>
               {/* ERROR */}
               <Route path="*" element={<Error />}></Route>
             </Route>

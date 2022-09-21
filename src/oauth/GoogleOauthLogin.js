@@ -8,6 +8,7 @@ import {
   resetName,
   resetEmail,
 } from "../redux/loginDetailsSlice";
+import { setShowToastOff, setShowToastOn } from "../redux/showToastSlice";
 // FIREBASE
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -30,6 +31,7 @@ const GoogleOauthLogin = () => {
         dispatch(setSignIn());
         dispatch(setName(name));
         dispatch(setEmail(email));
+        dispatch(setShowToastOn());
       })
       .catch((error) => {
         console.log(error);
@@ -41,6 +43,7 @@ const GoogleOauthLogin = () => {
     dispatch(setSignOff());
     dispatch(resetName());
     dispatch(resetEmail());
+    dispatch(setShowToastOff());
   };
 
   // RENDER

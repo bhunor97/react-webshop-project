@@ -2,6 +2,7 @@ import React from "react";
 // COMPONENTS
 import themeSwitchFunc from "./ThemeFunc";
 import GoogleOauthLogin from "../oauth/GoogleOauthLogin";
+import CartList from "./CartList";
 // REDUX-TOOLKIT
 import { useSelector } from "react-redux";
 // BOOTSTRAP
@@ -19,9 +20,19 @@ const MyCartLoggedStatus = () => {
     if (isSignedIn) {
       return (
         <div className="d-flex flex-column align-items-center justify-content-center">
-          <h1>You are logged in!</h1>
-          <h3>Name: {loginDetailsName}</h3>
-          <h3>Email: {loginDetailsEmail}</h3>
+          <Alert variant="success">
+            <Alert.Heading>Welcome back {loginDetailsName}!</Alert.Heading>
+            <p>
+              Your are currently logged in with this email address:{" "}
+              {loginDetailsEmail}
+            </p>
+            <hr />
+            <p className="mb-0">
+              Feel free to browse through your cart and remove any unwanted
+              items from the list!
+            </p>
+          </Alert>
+          <CartList />
         </div>
       );
       // NOT LOGGED IN
@@ -30,8 +41,8 @@ const MyCartLoggedStatus = () => {
         <Alert variant="danger" className=" mt-4 mx-auto w-50 ">
           <Alert.Heading>You are currently not logged in!</Alert.Heading>
           <p>
-            In order to check your cart first you have to log in with your Gmail
-            account.
+            In order to check your cart, first you have to log in with your
+            Gmail account.
           </p>
           <hr />
           <div className="d-flex justify-content-end">
