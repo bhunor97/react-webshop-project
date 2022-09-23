@@ -15,8 +15,9 @@ const UserDetailsToast = () => {
   const dispatch = useDispatch();
 
   return (
-    <ToastContainer position="top-end" className="mt-5 p-5 ">
+    <ToastContainer>
       <Toast
+        className="user-toast"
         bg={themeSwitchFunc(theme)}
         show={showToast === true ? true : false}
         onClose={() => dispatch(setShowToastOff())}
