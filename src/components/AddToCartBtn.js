@@ -10,11 +10,16 @@ import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 // REDUX-TOOLKIT
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setCartItems } from "../redux/cartItemsSlice";
 
-const AddToCartBtn = () => {
+const AddToCartBtn = ({ element }) => {
   const theme = useSelector((state) => state.setTheme.theme);
   const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
+  const cartItems = useSelector((state) => state.getCartItems.cartItems);
+  const dispatch = useDispatch();
+
+  console.log(cartItems);
 
   // NOT LOGGED TOOLTIP
   const notLoggedTooltip = (props) => (
@@ -30,7 +35,13 @@ const AddToCartBtn = () => {
     <div className="d-grid gap-2">
       {isSignedIn === true ? (
         // IF SIGNED IN --> NO TOOLTIP
-        <Button variant={themeSwitchFunc(theme)} size="lg">
+        <Button
+          variant={themeSwitchFunc(theme)}
+          size="lg"
+          onClick={() => {
+            dispatch(setCartItems([element.title, element.price]));
+          }}
+        >
           Add To Cart
           <span className="add-to-cart-icon-span p-2 ">
             <CartIcon />

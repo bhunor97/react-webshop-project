@@ -9,6 +9,7 @@ import {
   resetEmail,
 } from "../redux/loginDetailsSlice";
 import { setShowToastOff, setShowToastOn } from "../redux/showToastSlice";
+import { resetCartItems } from "../redux/cartItemsSlice";
 // FIREBASE
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
@@ -44,6 +45,7 @@ const GoogleOauthLogin = () => {
     dispatch(resetName());
     dispatch(resetEmail());
     dispatch(setShowToastOff());
+    dispatch(resetCartItems());
   };
 
   // RENDER

@@ -5,6 +5,7 @@ import loadingReducer from "./loadingSlice";
 import loginReducer from "./loginStatusSlice";
 import loginDetailsReducer from "./loginDetailsSlice";
 import showToastReducers from "./showToastSlice";
+import cartItemsReducer from "./cartItemsSlice";
 
 // YOU NEED TO IMPORT THIS ON THE COMPONENT U WANNA USE IT
 export const store = configureStore({
@@ -15,5 +16,6 @@ export const store = configureStore({
     getSignedIn: loginReducer,
     getLoginDetails: loginDetailsReducer,
     getShowToast: showToastReducers,
+    getCartItems: cartItemsReducer,
   },
 });

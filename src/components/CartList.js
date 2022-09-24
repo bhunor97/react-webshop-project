@@ -1,46 +1,44 @@
 import React from "react";
+import CartIcon from "../icons/CartIcon";
 // REACT-BOOTSTRAP
-import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import { Badge } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
+// REDUX-TOOLKIT
+import { useSelector, useDispatch } from "react-redux";
+import { resetCartItems } from "../redux/cartItemsSlice";
 
 // UNFINISHED
 const CartList = () => {
+  const cartItems = useSelector((state) => state.getCartItems.cartItems);
+  const dispatch = useDispatch();
+
   return (
     <>
-      <Table striped hover variant="dark" className="w-50">
-        <thead>
-          <tr>
-            <th>YOUR CART</th>
-            <th>Item</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>DELETE</th>
-            <td>Item_1</td>
-            <td>Price_1</td>
-          </tr>
-          <tr>
-            <th>DELETE</th>
-            <td>Item_2</td>
-            <td>Price_2</td>
-          </tr>
-          <tr>
-            <td colSpan={2}>Total:</td>
-            <td>Total Price Here</td>
-          </tr>
-          <tr>
-            <td colSpan={3}>
-              <div className="d-grid gap-2">
-                <Button variant="success" size="lg">
-                  Buy
-                </Button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
+      <Card>
+        <Card.Header as="h4" className="text-dark text-align-center m-auto">
+          My Cart
+          <span>
+            <CartIcon />
+          </span>
+        </Card.Header>
+
+        <ListGroup as="ol" numbered>
+          <ListGroup.Item
+            as="li"
+            className="d-flex justify-content-between align-items-start"
+          >
+            <div className="ms-2 me-auto">
+              <div className="fw-bold">Item</div>
+              button?
+            </div>
+            <Badge bg="primary" pill>
+              $14
+            </Badge>
+          </ListGroup.Item>
+        </ListGroup>
+      </Card>
     </>
   );
 };

@@ -12,6 +12,7 @@ const UserDetailsToast = () => {
   const loginDetailsName = useSelector((state) => state.getLoginDetails.name);
   const loginDetailsEmail = useSelector((state) => state.getLoginDetails.email);
   const showToast = useSelector((state) => state.getShowToast.showToast);
+  const cartItems = useSelector((state) => state.getCartItems.cartItems);
   const dispatch = useDispatch();
 
   return (
@@ -27,7 +28,7 @@ const UserDetailsToast = () => {
           <strong className="me-auto">Hi {loginDetailsName}!</strong>
           <small className="text-muted">{loginDetailsEmail}</small>
         </Toast.Header>
-        <Toast.Body>Your Cart Items: _</Toast.Body>
+        <Toast.Body>Items in your cart: {cartItems.length}</Toast.Body>
       </Toast>
     </ToastContainer>
   );

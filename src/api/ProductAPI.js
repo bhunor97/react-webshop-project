@@ -52,6 +52,7 @@ const ProductAPI = () => {
               <tr>
                 <td>
                   <img
+                    key={element.id}
                     src={element.image}
                     alt="product-image"
                     className="rendered-product-image"
@@ -59,16 +60,16 @@ const ProductAPI = () => {
                 </td>
               </tr>
               <tr>
-                <td>{element.description}</td>
+                <td key={element.id}>{element.description}</td>
               </tr>
               <tr>
-                <td>Price: ${element.price}</td>
+                <td key={element.id}>Price: ${element.price}</td>
               </tr>
               <tr>
-                <td>Rating: 10 / {element.rating.rate}</td>
+                <td key={element.id}>Rating: 10 / {element.rating.rate}</td>
               </tr>
               <tr>
-                <AddToCartBtn />
+                <AddToCartBtn element={element} />
               </tr>
             </tbody>
           </Table>
