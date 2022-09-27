@@ -4,7 +4,7 @@ import MyCartLoggedStatus from "../components/MyCartLoggedStatus";
 
 const MyCart = () => {
   return (
-    <section className="my-cart-section d-flex  align-items-center justify-content-center mt-5">
+    <section className="my-cart-section d-flex  align-items-center justify-content-center">
       {/* <h1>My Cart</h1> */}
       <MyCartLoggedStatus />
     </section>
