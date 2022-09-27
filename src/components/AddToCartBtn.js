@@ -39,7 +39,9 @@ const AddToCartBtn = ({ element }) => {
           variant={themeSwitchFunc(theme)}
           size="lg"
           onClick={() => {
-            dispatch(setCartItems([element.title, element.price]));
+            dispatch(
+              setCartItems([{ title: element.title, price: element.price }])
+            );
           }}
         >
           Add To Cart

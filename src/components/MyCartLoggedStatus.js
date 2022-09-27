@@ -38,7 +38,7 @@ const MyCartLoggedStatus = () => {
       // NOT LOGGED IN
     } else {
       return (
-        <Alert variant="danger" className=" mt-4 mx-auto w-50 ">
+        <Alert variant="danger" className=" mt-4 mx-auto w-70 ">
           <Alert.Heading>You are currently not logged in!</Alert.Heading>
           <p>
             In order to check your cart, first you have to log in with your

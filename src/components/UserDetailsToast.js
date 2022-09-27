@@ -2,10 +2,12 @@ import React, { useState } from "react";
 // REACT-BOOTSTRAP
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
+import Button from "react-bootstrap/Button";
 // REDUX-TOOLKIT
 import themeSwitchFunc from "./ThemeFunc";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowToastOn, setShowToastOff } from "../redux/showToastSlice";
+import { resetCartItems } from "../redux/cartItemsSlice";
 
 const UserDetailsToast = () => {
   const theme = useSelector((state) => state.setTheme.theme);
@@ -28,7 +30,19 @@ const UserDetailsToast = () => {
           <strong className="me-auto">Hi {loginDetailsName}!</strong>
           <small className="text-muted">{loginDetailsEmail}</small>
         </Toast.Header>
-        <Toast.Body>Items in your cart: {cartItems.length}</Toast.Body>
+        <Toast.Body className="d-flex align-items-center justify-content-between">
+          Items in your cart: {cartItems.length}
+          {/* RESET BUTTON */}
+          <Button
+            variant="outline-danger"
+            size="sm"
+            onClick={() => {
+              dispatch(resetCartItems());
+            }}
+          >
+            Reset Cart
+          </Button>
+        </Toast.Body>
       </Toast>
     </ToastContainer>
   );
