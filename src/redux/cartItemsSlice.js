@@ -12,8 +12,14 @@ export const cartItemsSlice = createSlice({
     resetCartItems: (state) => {
       state.cartItems = [];
     },
+    deleteCartItem: (state, action) => {
+      state.cartItems = state.cartItems.filter((x) => {
+        return x[0].title !== action.payload;
+      });
+    },
   },
 });
 
-export const { setCartItems, resetCartItems } = cartItemsSlice.actions;
+export const { setCartItems, resetCartItems, deleteCartItem } =
+  cartItemsSlice.actions;
 export default cartItemsSlice.reducer;

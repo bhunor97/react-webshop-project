@@ -4,7 +4,6 @@ import EmptyCartAlert from "./EmptyCartAlert";
 import CartIcon from "../icons/CartIcon";
 import DeleteItemBtn from "./DeleteItemBtn";
 import BuyBtn from "./BuyBtn";
-import CartResetBtn from "./CartResetBtn";
 // REACT-BOOTSTRAP
 import Button from "react-bootstrap/Button";
 import { Badge } from "react-bootstrap";
@@ -13,7 +12,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 // REDUX-TOOLKIT
 import themeSwitchFunc from "./ThemeFunc";
 import { useSelector, useDispatch } from "react-redux";
-import { resetCartItems } from "../redux/cartItemsSlice";
+import { setCartItems, deleteCartItem } from "../redux/cartItemsSlice";
 
 const CartList = () => {
   const theme = useSelector((state) => state.setTheme.theme);
@@ -30,7 +29,16 @@ const CartList = () => {
         >
           <div className="ms-2 me-auto">
             <div className="fw-bold ">{element[0].title}</div>
-            <DeleteItemBtn />
+            {/* DELETE BTN HARDCODE */}
+            <Button
+              variant="outline-danger"
+              size="sm"
+              onClick={() => {
+                dispatch(deleteCartItem(element[0].title));
+              }}
+            >
+              Delete
+            </Button>
           </div>
           <Badge
             bg={themeSwitchFunc(theme)}
@@ -52,10 +60,12 @@ const CartList = () => {
   console.log(cartItems);
   return (
     <>
+      {/* IF CART IS EMPTY */}
       {cartItems.length === 0 ? (
         <EmptyCartAlert />
       ) : (
         <>
+          {/* IF NOT EMPTY */}
           <Card bg={themeSwitchFunc(theme)} className="mt-5">
             <Card.Header
               as="h4"
@@ -71,32 +81,24 @@ const CartList = () => {
               {cartItemRender()}
             </ListGroup>
           </Card>
-          {/* TOTAL -- UNFINISHED */}
-
-          <ListGroup
-            horizontal={"sm"}
-            className="my-5 d-flex align-items-center justify-content-center w-100"
-          >
-            <ListGroup.Item
-              as={Button}
-              className="w-50"
-              variant={themeSwitchFunc(theme)}
-            >
-              {/* <BuyBtn /> */}
-              Buy
-            </ListGroup.Item>
-            <ListGroup.Item
-              as={Button}
-              className="w-50 mx-5"
-              variant={themeSwitchFunc(theme)}
-            >
-              {/* <CartResetBtn /> */}
-              Reset
-            </ListGroup.Item>
-            <ListGroup.Item className="w-50" variant={themeSwitchFunc(theme)}>
-              Your Total: ${total}
-            </ListGroup.Item>
-          </ListGroup>
+          {/* BUY BTN + TOTAL SECTION*/}
+          <Card bg={themeSwitchFunc(theme)} className="py-3 w-100">
+            <div className="d-flex w-100 align-items-center justify-content-between px-4">
+              <div>
+                <BuyBtn />
+              </div>
+              <h3>
+                <Badge
+                  bg={themeSwitchFunc(theme)}
+                  className={
+                    theme === "dark-theme" ? "text-light" : "text-dark"
+                  }
+                >
+                  Your Total: ${total}
+                </Badge>
+              </h3>
+            </div>
+          </Card>
         </>
       )}
     </>
