@@ -18,6 +18,8 @@ const ProductAPI = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const loading = useSelector((state) => state.getLoading.loading);
 
+  // console.log(currentProducts);
+
   // USE EFFECT FETCH
   useEffect(() => {
     const URL = `https://fakestoreapi.com/products/category/${category}`;
@@ -35,9 +37,9 @@ const ProductAPI = () => {
 
   // MAPPING PRODUCTS
   const productsMapped = () => {
-    return currentProducts.map((element) => {
+    return currentProducts.map((element, index) => {
       return (
-        <div className="rendered-product-table">
+        <div key={index} className="rendered-product-table">
           <Table
             striped
             bordered
@@ -45,14 +47,13 @@ const ProductAPI = () => {
             variant={`${themeSwitchFunc(theme)}`}
             className="shadow"
           >
-            <tbody key={element.id}>
+            <tbody>
               <tr>
                 <td className="rendered-product-title">{element.title}</td>
               </tr>
               <tr>
                 <td>
                   <img
-                    key={element.id}
                     src={element.image}
                     alt="product-image"
                     className="rendered-product-image"
@@ -60,13 +61,13 @@ const ProductAPI = () => {
                 </td>
               </tr>
               <tr>
-                <td key={element.id}>{element.description}</td>
+                <td>{element.description}</td>
               </tr>
               <tr>
-                <td key={element.id}>Price: ${element.price}</td>
+                <td>Price: ${element.price}</td>
               </tr>
               <tr>
-                <td key={element.id}>Rating: 10 / {element.rating.rate}</td>
+                <td>Rating: 10 / {element.rating.rate}</td>
               </tr>
               <tr>
                 <AddToCartBtn element={element} />

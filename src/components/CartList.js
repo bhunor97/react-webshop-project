@@ -19,8 +19,12 @@ const CartList = () => {
   const cartItems = useSelector((state) => state.getCartItems.cartItems);
   const dispatch = useDispatch();
 
+  const total = cartItems.reduce((accum, item) => accum + item[0].price, 0);
+
+  console.log(cartItems);
+
   const cartItemRender = () => {
-    return cartItems.map((element) => {
+    return cartItems.map((element, index) => {
       return (
         <ListGroup.Item
           as="li"
@@ -29,16 +33,18 @@ const CartList = () => {
         >
           <div className="ms-2 me-auto">
             <div className="fw-bold ">{element[0].title}</div>
-            {/* DELETE BTN HARDCODE */}
+            {/* DELETE BTN */}
             <Button
               variant="outline-danger"
               size="sm"
               onClick={() => {
-                dispatch(deleteCartItem(element[0].title));
+                dispatch(deleteCartItem(index));
+                // console.log(index);
               }}
             >
               Delete
             </Button>
+            {/* DELETE BTN */}
           </div>
           <Badge
             bg={themeSwitchFunc(theme)}
@@ -54,10 +60,6 @@ const CartList = () => {
     });
   };
 
-  // TOTAL AMOUNT
-  const total = cartItems.reduce((accum, item) => accum + item[0].price, 0);
-
-  console.log(cartItems);
   return (
     <>
       {/* IF CART IS EMPTY */}

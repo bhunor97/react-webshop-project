@@ -13,8 +13,8 @@ export const cartItemsSlice = createSlice({
       state.cartItems = [];
     },
     deleteCartItem: (state, action) => {
-      state.cartItems = state.cartItems.filter((x) => {
-        return x[0].title !== action.payload;
+      state.cartItems = state.cartItems.filter((element, index) => {
+        return index !== action.payload;
       });
     },
   },
