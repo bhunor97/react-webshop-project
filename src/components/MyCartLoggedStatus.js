@@ -4,27 +4,38 @@ import themeSwitchFunc from "./ThemeFunc";
 import GoogleOauthLogin from "../oauth/GoogleOauthLogin";
 import CartList from "./CartList";
 // REDUX-TOOLKIT
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setShowAlertOff, setShowAlertOn } from "../redux/alertSlice";
 // BOOTSTRAP
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
+import { Badge } from "react-bootstrap";
 
 const MyCartLoggedStatus = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
   const loginDetailsName = useSelector((state) => state.getLoginDetails.name);
   const loginDetailsEmail = useSelector((state) => state.getLoginDetails.email);
+  const showAlert = useSelector((state) => state.getShowAlert.showAlert);
+  const dispatch = useDispatch();
 
   const displaysignedFunc = () => {
     // LOGGED IN
     if (isSignedIn) {
       return (
         <div className="d-flex flex-column align-items-center justify-content-center mt-5">
-          <Alert variant="success">
-            <Alert.Heading>Welcome back {loginDetailsName}!</Alert.Heading>
+          <Alert
+            variant="success"
+            show={showAlert === true ? true : false}
+            onClose={() => dispatch(setShowAlertOff())}
+            dismissible
+          >
+            <Alert.Heading>
+              Welcome back <Badge bg="success">{loginDetailsName}</Badge>!
+            </Alert.Heading>
             <p>
               Your are currently logged in with this email address:{" "}
-              {loginDetailsEmail}
+              <Badge bg="success">{loginDetailsEmail}</Badge>
             </p>
             <hr />
             <p className="mb-0">

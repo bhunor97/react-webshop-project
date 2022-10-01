@@ -10,15 +10,16 @@ import {
 } from "../redux/loginDetailsSlice";
 import { setShowToastOff, setShowToastOn } from "../redux/showToastSlice";
 import { resetCartItems } from "../redux/cartItemsSlice";
+import { setShowAlertOff, setShowAlertOn } from "../redux/alertSlice";
 // FIREBASE
 import { auth, provider } from "./Firebase";
 import { signInWithPopup } from "firebase/auth";
 
 const GoogleOauthLogin = () => {
-  const dispatch = useDispatch();
   const isSignedIn = useSelector((state) => state.getSignedIn.signedIn);
   const loginDetailsName = useSelector((state) => state.getLoginDetails.name);
   const loginDetailsEmail = useSelector((state) => state.getLoginDetails.email);
+  const dispatch = useDispatch();
 
   // SIGN IN FUNC
   const mySignInWithGoogle = () => {
@@ -33,6 +34,7 @@ const GoogleOauthLogin = () => {
         dispatch(setName(name));
         dispatch(setEmail(email));
         dispatch(setShowToastOn());
+        dispatch(setShowAlertOn());
       })
       .catch((error) => {
         console.log(error);

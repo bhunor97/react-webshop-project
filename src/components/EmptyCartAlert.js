@@ -6,7 +6,7 @@ import Alert from "react-bootstrap/Alert";
 // REDUX-TOOLKIT
 import { useSelector } from "react-redux";
 import themeSwitchFunc from "./ThemeFunc";
-
+// REACT-ROUTER-DOM
 import { NavLink } from "react-router-dom";
 
 const EmptyCartAlert = () => {

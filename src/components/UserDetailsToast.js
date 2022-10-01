@@ -8,6 +8,8 @@ import themeSwitchFunc from "./ThemeFunc";
 import { useSelector, useDispatch } from "react-redux";
 import { setShowToastOn, setShowToastOff } from "../redux/showToastSlice";
 import { resetCartItems } from "../redux/cartItemsSlice";
+// REACT-ROUTER-DOM
+import { NavLink } from "react-router-dom";
 
 const UserDetailsToast = () => {
   const theme = useSelector((state) => state.setTheme.theme);
@@ -32,6 +34,10 @@ const UserDetailsToast = () => {
         </Toast.Header>
         <Toast.Body className="d-flex align-items-center justify-content-between">
           Items in your cart: {cartItems.length}
+          {/* GO TO CART BUTTON */}
+          <Button as={NavLink} to="/mycart" variant="outline-success" size="sm">
+            Go to Cart
+          </Button>
           {/* RESET BUTTON */}
           <Button
             variant="outline-danger"

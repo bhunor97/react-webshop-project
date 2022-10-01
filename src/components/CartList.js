@@ -68,7 +68,7 @@ const CartList = () => {
       ) : (
         <>
           {/* IF NOT EMPTY */}
-          <Card bg={themeSwitchFunc(theme)} className="mt-5">
+          <Card bg={themeSwitchFunc(theme)} className="mt-4 w-100">
             <Card.Header
               as="h4"
               className={theme === "dark-theme" ? "text-light" : "text-dark"}
@@ -84,20 +84,13 @@ const CartList = () => {
             </ListGroup>
           </Card>
           {/* BUY BTN + TOTAL SECTION*/}
-          <Card bg={themeSwitchFunc(theme)} className="py-3 w-100">
+          <Card bg={themeSwitchFunc(theme)} className="py-3 w-100 mb-5">
             <div className="d-flex w-100 align-items-center justify-content-between px-4">
               <div>
                 <BuyBtn />
               </div>
               <h3>
-                <Badge
-                  bg={themeSwitchFunc(theme)}
-                  className={
-                    theme === "dark-theme" ? "text-light" : "text-dark"
-                  }
-                >
-                  Your Total: ${total}
-                </Badge>
+                <Badge bg="secondary">Your Total: ${total}</Badge>
               </h3>
             </div>
           </Card>
