@@ -1,0 +1,21 @@
+// TOAST BUTTON
+.user-toast {
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 5rem 2rem 0 0;
+  opacity: 0.7;
+
+  .toast-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .toast-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

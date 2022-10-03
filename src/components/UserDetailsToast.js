@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import Button from "react-bootstrap/Button";
+import { Badge } from "react-bootstrap";
 // REDUX-TOOLKIT
 import themeSwitchFunc from "./ThemeFunc";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,12 +28,12 @@ const UserDetailsToast = () => {
         show={showToast === true ? true : false}
         onClose={() => dispatch(setShowToastOff())}
       >
-        <Toast.Header className="text-dark">
-          <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+        <Toast.Header className="text-dark d-none d-lg-block toast-header">
+          <img className="rounded me-1" />
           <strong className="me-auto">Hi {loginDetailsName}!</strong>
           <small className="text-muted">{loginDetailsEmail}</small>
         </Toast.Header>
-        <Toast.Body className="d-flex align-items-center justify-content-between">
+        <Toast.Body className="toast-body">
           Items in your cart: {cartItems.length}
           {/* GO TO CART BUTTON */}
           <Button as={NavLink} to="/mycart" variant="outline-success" size="sm">

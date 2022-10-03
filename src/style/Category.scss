@@ -1,12 +1,13 @@
 // RENDERED CATEGORIES
 .category-container {
   max-width: 100%;
+  // height: 100%;
   margin: auto;
   display: grid;
-  row-gap: 10%;
+  row-gap: 5rem;
   column-gap: 1em;
   grid-template-columns: 1fr;
-  padding: 5% 0 10% 0;
+  padding: 3rem 0 10% 0;
 
   // LARGER THAN SM -> 2 COLS
   @media (min-width: 576px) {
@@ -18,6 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
   }
 
   .category-card-img {
