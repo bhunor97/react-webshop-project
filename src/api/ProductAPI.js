@@ -49,25 +49,27 @@ const ProductAPI = () => {
           >
             <tbody>
               <tr>
-                <td className="rendered-product-title">{element.title}</td>
+                <td className="product-title">{element.title}</td>
               </tr>
               <tr>
                 <td>
                   <img
                     src={element.image}
                     alt="product-image"
-                    className="rendered-product-image"
+                    className="product-image"
                   />
                 </td>
               </tr>
               <tr>
-                <td>{element.description}</td>
+                <td className="product-description">{element.description}</td>
               </tr>
               <tr>
-                <td>Price: ${element.price}</td>
+                <td className="product-price">Price: ${element.price}</td>
               </tr>
               <tr>
-                <td>Rating: 10 / {element.rating.rate}</td>
+                <td className="product-rating">
+                  Rating: 10 / {element.rating.rate}
+                </td>
               </tr>
               <tr>
                 <AddToCartBtn element={element} />
@@ -79,7 +81,15 @@ const ProductAPI = () => {
     });
   };
 
-  return <div>{loading ? <MySpinner /> : productsMapped()}</div>;
+  return (
+    <>
+      {loading ? (
+        <MySpinner />
+      ) : (
+        <div className="product-container">{productsMapped()}</div>
+      )}
+    </>
+  );
 };
 
 export default ProductAPI;

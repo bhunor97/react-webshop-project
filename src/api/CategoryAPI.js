@@ -75,7 +75,7 @@ const CategoryAPI = () => {
           key={Math.random()}
           onClick={() => selectCategoryFunc(element)}
         >
-          <div className="rendered-bs-card">
+          <div className="rendered-bs-card w-2">
             <Card className={`bg-${themeSwitchFunc(theme)} shadow border-0`}>
               <Card.Body>
                 <Card.Text>{element}</Card.Text>

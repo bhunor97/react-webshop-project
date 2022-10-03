@@ -31,7 +31,7 @@ const MyCartLoggedStatus = () => {
             dismissible
           >
             <Alert.Heading>
-              Welcome back <Badge bg="success">{loginDetailsName}</Badge>!
+              Welcome back <Badge bg="success">{loginDetailsName}</Badge>
             </Alert.Heading>
             <p>
               Your are currently logged in with this email address:{" "}

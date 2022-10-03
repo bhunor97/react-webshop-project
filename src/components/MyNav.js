@@ -47,14 +47,22 @@ const MyNav = () => {
               <Nav.Link>
                 <GoogleOauthLogin />
               </Nav.Link>
-              <Nav.Link disabled>
+              <Nav.Link
+                // HIDE ICON ON MOBILE
+                className="d-none d-lg-block "
+              >
                 {/* USER LOGGED IN / LOG OUT ICONS */}
                 {isSignedIn === true ? <LogOutIcon /> : <UserIcon />}
               </Nav.Link>
               <Nav.Link as={NavLink} to="/mycart">
                 My cart
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/mycart">
+              <Nav.Link
+                as={NavLink}
+                to="/mycart"
+                // HIDE ICON ON MOBILE
+                className="d-none d-lg-block "
+              >
                 <CartIcon />
               </Nav.Link>
             </Nav>
@@ -65,7 +73,6 @@ const MyNav = () => {
   );
 };
 {
-  /* <UserIcon /> */
 }
 
 export default MyNav;

@@ -1,4 +1,7 @@
 import React from "react";
+// ANIMATION UNFINISHED
+// import { useRef } from "react";
+// import { useAutoAnimate } from "@formkit/auto-animate/react";
 // COMPONENTS
 import EmptyCartAlert from "./EmptyCartAlert";
 import CartIcon from "../icons/CartIcon";
@@ -18,10 +21,11 @@ const CartList = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   const cartItems = useSelector((state) => state.getCartItems.cartItems);
   const dispatch = useDispatch();
-
+  // TOTAL SUM
   const total = cartItems.reduce((accum, item) => accum + item[0].price, 0);
 
   console.log(cartItems);
+  // const [listRef] = useAutoAnimate(); UNFINISHED
 
   const cartItemRender = () => {
     return cartItems.map((element, index) => {
@@ -44,7 +48,6 @@ const CartList = () => {
             >
               Delete
             </Button>
-            {/* DELETE BTN */}
           </div>
           <Badge
             bg={themeSwitchFunc(theme)}

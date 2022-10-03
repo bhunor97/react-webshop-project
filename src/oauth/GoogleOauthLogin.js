@@ -26,7 +26,6 @@ const GoogleOauthLogin = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
-
         const name = result.user.displayName;
         const email = result.user.email;
 
