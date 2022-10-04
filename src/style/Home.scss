@@ -1,0 +1,65 @@
+// TOP WAVES
+.custom-shape-divider-top-1664907779 {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1664907779 svg {
+  position: relative;
+  display: block;
+  width: calc(194% + 1.3px);
+  height: 169px;
+}
+
+// custom-theme
+.custom-shape-divider-top-1664907779 .shape-fill-custom {
+  fill: #ffc1076c;
+}
+
+// dark-theme
+.custom-shape-divider-top-1664907779 .shape-fill-dark {
+  fill: #6c757d25;
+}
+
+// light-theme
+.custom-shape-divider-top-1664907779 .shape-fill-light {
+  fill: #fbfbfb91;
+}
+
+// BOTTOMWAVES
+.custom-shape-divider-bottom-1664909515 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1664909515 svg {
+  position: relative;
+  display: block;
+  width: calc(266% + 1.3px);
+  height: 141px;
+  transform: rotateY(180deg);
+}
+
+// custom-theme
+.custom-shape-divider-bottom-1664909515 .shape-fill-custom {
+  fill: #ffc1076c;
+}
+
+// dark-theme
+.custom-shape-divider-bottom-1664909515 .shape-fill-dark {
+  fill: #6c757d25;
+}
+
+//light-theme
+.custom-shape-divider-bottom-1664909515 .shape-fill-light {
+  fill: #fbfbfb91;
+}
