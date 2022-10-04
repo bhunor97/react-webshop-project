@@ -25,6 +25,7 @@ const MyCartLoggedStatus = () => {
       return (
         <div className="d-flex flex-column align-items-center justify-content-center mt-5">
           <Alert
+            className="alert-loggedIn"
             variant="success"
             show={showAlert === true ? true : false}
             onClose={() => dispatch(setShowAlertOff())}
@@ -49,7 +50,7 @@ const MyCartLoggedStatus = () => {
       // NOT LOGGED IN
     } else {
       return (
-        <Alert variant="danger" className=" mt-4 mx-auto w-70 ">
+        <Alert variant="danger" className="mt-4 mx-auto  alert-notLoggedIn">
           <Alert.Heading>You are currently not logged in!</Alert.Heading>
           <p>
             In order to check your cart, first you have to log in with your

@@ -28,9 +28,9 @@ const UserDetailsToast = () => {
         show={showToast === true ? true : false}
         onClose={() => dispatch(setShowToastOff())}
       >
-        <Toast.Header className="text-dark d-none d-lg-block toast-header">
+        <Toast.Header className="text-dark d-none d-lg-flex toast-header">
           <img className="rounded me-1" />
-          <strong className="me-auto">Hi {loginDetailsName}!</strong>
+          <strong className="me-auto">Hi {loginDetailsName}</strong>
           <small className="text-muted">{loginDetailsEmail}</small>
         </Toast.Header>
         <Toast.Body className="toast-body">
@@ -41,6 +41,7 @@ const UserDetailsToast = () => {
           </Button>
           {/* RESET BUTTON */}
           <Button
+            className="d-none d-md-flex"
             variant="outline-danger"
             size="sm"
             onClick={() => {

@@ -13,7 +13,7 @@ const EmptyCartAlert = () => {
   const theme = useSelector((state) => state.setTheme.theme);
 
   return (
-    <Alert variant={themeSwitchFunc(theme)}>
+    <Alert variant={themeSwitchFunc(theme)} className="empty-cart-alert">
       Your cart is empty! Check out our
       <NavLink to="/products" className="text-decoration-none ">
         {" "}

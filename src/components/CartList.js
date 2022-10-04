@@ -33,12 +33,13 @@ const CartList = () => {
         <ListGroup.Item
           as="li"
           variant={themeSwitchFunc(theme)}
-          className="d-flex justify-content-center align-items-start w-100"
+          className="d-flex justify-content-center align-items-start"
         >
           <div className="ms-2 me-auto">
             <div className="fw-bold ">{element[0].title}</div>
             {/* DELETE BTN */}
             <Button
+              className="my-2"
               variant="outline-danger"
               size="sm"
               onClick={() => {
@@ -71,7 +72,7 @@ const CartList = () => {
       ) : (
         <>
           {/* IF NOT EMPTY */}
-          <Card bg={themeSwitchFunc(theme)} className="mt-4 w-100">
+          <Card bg={themeSwitchFunc(theme)} className="mt-4 cart-card-top">
             <Card.Header
               as="h4"
               className={theme === "dark-theme" ? "text-light" : "text-dark"}
@@ -87,7 +88,10 @@ const CartList = () => {
             </ListGroup>
           </Card>
           {/* BUY BTN + TOTAL SECTION*/}
-          <Card bg={themeSwitchFunc(theme)} className="py-3 w-100 mb-5">
+          <Card
+            bg={themeSwitchFunc(theme)}
+            className="py-3 mb-5 cart-card-bottom"
+          >
             <div className="d-flex w-100 align-items-center justify-content-between px-4">
               <div>
                 <BuyBtn />
