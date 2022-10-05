@@ -1,0 +1,59 @@
+// TOP WAVES
+.custom-shape-divider-top-1665001827 {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1665001827 svg {
+  position: relative;
+  display: block;
+  width: calc(204% + 1.3px);
+  height: 100px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1665001827 .shape-fill {
+  fill: #ffffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1665001827 svg {
+    width: calc(173% + 1.3px);
+    height: 70px;
+  }
+}
+
+// BOTTOMWAVES
+.custom-shape-divider-bottom-1665001935 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1665001935 svg {
+  position: relative;
+  display: block;
+  width: calc(204% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-bottom-1665001935 .shape-fill {
+  fill: #ffffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1665001935 svg {
+    width: calc(173% + 1.3px);
+    height: 70px;
+  }
+}

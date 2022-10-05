@@ -8,7 +8,9 @@ import "./style/Spinner.scss";
 import "./style/Toast.scss";
 import "./style/MyCart.scss";
 import "./style/Alert.scss";
-import "./style/Home.scss";
+import "./style/WavesHome.scss";
+import "./style/WavesProducts.scss";
+import "./style/WavesTheme.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP

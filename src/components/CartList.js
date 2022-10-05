@@ -92,12 +92,18 @@ const CartList = () => {
             bg={themeSwitchFunc(theme)}
             className="py-3 mb-5 cart-card-bottom"
           >
-            <div className="d-flex w-100 align-items-center justify-content-between px-4">
+            <div className="w-100 d-flex align-items-center justify-content-between px-4">
               <div>
                 <BuyBtn />
               </div>
               <h3>
-                <Badge bg="secondary">Your Total: ${total}</Badge>
+                <Badge
+                  className="d-flex flex-column flex-md-row"
+                  bg="secondary"
+                >
+                  <div className="pe-1 pe-md-1">Your Total:</div>
+                  <div>${total}</div>
+                </Badge>
               </h3>
             </div>
           </Card>
