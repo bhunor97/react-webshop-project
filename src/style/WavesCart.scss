@@ -1,0 +1,59 @@
+// WAVES-TOP
+.custom-shape-divider-top-1665086585 {
+  position: absolute;
+  top: 10;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1665086585 svg {
+  position: relative;
+  display: block;
+  width: calc(200% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1665086585 .shape-fill {
+  fill: #ffffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1665086585 svg {
+    width: calc(205% + 1.3px);
+    height: 100px;
+  }
+}
+
+// WAVES-BOTTOM
+.custom-shape-divider-bottom-1665086749 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1665086749 svg {
+  position: relative;
+  display: block;
+  width: calc(200% + 1.3px);
+  height: 100px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1665086749 .shape-fill {
+  fill: #ffffff;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1665086749 svg {
+    width: calc(205% + 1.3px);
+    height: 100px;
+  }
+}

@@ -11,6 +11,8 @@ import "./style/Alert.scss";
 import "./style/WavesHome.scss";
 import "./style/WavesProducts.scss";
 import "./style/WavesTheme.scss";
+import "./style/WavesContact.scss";
+import "./style/WavesCart.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP

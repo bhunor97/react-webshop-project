@@ -1,5 +1,7 @@
 import { React } from "react";
-import waveThemeFunc from "../components/WaveTheme";
+// COMPONENTS
+import HomeAnimation from "../components/HomeAnimation";
+// WAVES
 import HomeBottomWave from "../waves/home/HomeBottomWave";
 import HomeTopWave from "../waves/home/HomeTopWave";
 // FIREBASE
@@ -12,8 +14,9 @@ const Home = () => {
 
   return (
     <section className="home-section">
-      <HomeBottomWave />
       <HomeTopWave />
+      <HomeAnimation />
+      <HomeBottomWave />
     </section>
   );
 };

@@ -1,8 +1,10 @@
 .cart-card-top,
 .cart-card-bottom {
   width: 75%;
+}
 
-  //   @media (min-width: 576px) {
-  //     width: 50%;
-  //   }
+.my-cart-section {
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }

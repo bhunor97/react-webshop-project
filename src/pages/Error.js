@@ -4,7 +4,7 @@ import HomeButton from "../components/HomeButton";
 
 const Error = () => {
   return (
-    <section>
+    <section className="error-section">
       <h1>
         404 Page Not Found
         <ErrorIcon />

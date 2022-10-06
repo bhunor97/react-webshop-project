@@ -4,14 +4,15 @@
   margin: 0;
 }
 
-h1 {
-  font-size: 3rem;
-}
+// h1 {
+//   font-size: 3rem;
+// }
 
 .products-section,
 .contact-section,
 .login-section,
 .my-cart-section,
+.error-section,
 .electronics-section,
 .jewelery-section,
 .mens-clothing-section,
@@ -52,4 +53,12 @@ h1 {
 // HOME BTN
 .home-btn-div {
   padding-top: 2rem;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 12%;
 }
