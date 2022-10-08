@@ -1,0 +1,29 @@
+// .contact-section {
+//   width: auto;
+// }
+
+.form-map-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+
+  .form-container {
+    width: 35rem;
+    padding: 1em;
+    .contact-text-area {
+      resize: none;
+    }
+  }
+
+  .map-container {
+    width: auto;
+    padding: 1em;
+    .google-map {
+      width: 45em;
+      height: 30rem;
+    }
+  }
+}

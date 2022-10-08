@@ -6,7 +6,7 @@ const ContactTopWave = () => {
   const theme = useSelector((state) => state.setTheme.theme);
 
   return (
-    <div class="custom-shape-divider-top-1665080165">
+    <div className="custom-shape-divider-top-1665080165">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

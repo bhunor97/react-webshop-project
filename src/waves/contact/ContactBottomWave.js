@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const ContactBottomWave = () => {
   const theme = useSelector((state) => state.setTheme.theme);
   return (
-    <div class="custom-shape-divider-bottom-1665080496">
+    <div className="custom-shape-divider-bottom-1665080496">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

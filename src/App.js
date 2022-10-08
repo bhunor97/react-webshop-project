@@ -13,6 +13,7 @@ import "./style/WavesProducts.scss";
 import "./style/WavesTheme.scss";
 import "./style/WavesContact.scss";
 import "./style/WavesCart.scss";
+import "./style/ContactPage.scss";
 // REACT ROUTER
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // BOOTSTRAP
