@@ -23,7 +23,7 @@ const MyCartLoggedStatus = () => {
     // LOGGED IN
     if (isSignedIn) {
       return (
-        <div className="d-flex flex-column align-items-center justify-content-center mt-5">
+        <div className="d-flex flex-column align-items-center justify-content-center my-5">
           <Alert
             className="alert-loggedIn"
             variant="success"

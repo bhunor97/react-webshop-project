@@ -9,26 +9,42 @@ import ContactBottomWave from "../waves/contact//ContactBottomWave";
 import { useSpring, animated } from "react-spring";
 
 const Contact = () => {
-  const fade = useSpring({
+  const marginFade = useSpring({
+    to: {
+      marginLeft: 0,
+    },
+    from: {
+      marginLeft: 1000,
+    },
+  });
+
+  const opacityFade = useSpring({
     to: { opacity: 1 },
     from: { opacity: 0 },
-    delay: 200,
+    delay: 500,
   });
 
   return (
     <section className="contact-section">
-      <ContactTopWave />
-      <h1>Contact</h1>
+      <animated.div style={opacityFade}>
+        <ContactTopWave />
+      </animated.div>
 
-      <animated.div style={fade} className="form-map-container mt-5 p-2 shadow">
-        <div className="form-container">
-          <ContactForm />
-        </div>
-        <div className="map-container">
-          <ContactMap />
+      <animated.div style={marginFade}>
+        <h1>Contact</h1>
+
+        <div className="form-map-container mt-5 p-2 shadow">
+          <div className="form-container">
+            <ContactForm />
+          </div>
+          <div className="map-container">
+            <ContactMap />
+          </div>
         </div>
       </animated.div>
-      <ContactBottomWave />
+      <animated.div style={opacityFade}>
+        <ContactBottomWave />
+      </animated.div>
     </section>
   );
 };
