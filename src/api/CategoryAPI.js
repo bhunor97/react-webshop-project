@@ -36,7 +36,7 @@ const CategoryAPI = () => {
     const getCategories = async () => {
       const categories = await fetch(URL)
         .then((response) => response.json())
-        .catch((err) => console.log(err.message))
+        .catch((err) => console.log(err))
         .finally(() => dispatch(swithcLoadingOff()));
       setCurrentCategories(categories);
     };

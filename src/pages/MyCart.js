@@ -6,29 +6,20 @@ import CartWaveBottom from "../waves/cart/CartWaveBottom";
 import CartWaveTop from "../waves/cart/CartWaveTop";
 // REACT-SPRING
 import { useSpring, animated } from "react-spring";
+// CUSTOM SPRING ANIMATIONS
+import { fade, bottomSlide, rightSlide } from "../components/Animations";
 
 const MyCart = () => {
-  const topSlide = useSpring({
-    to: { marginTop: 0, opacity: 1 },
-    from: { marginTop: -200, opacity: 0 },
-    delay: 200,
-  });
-
-  const opacityFade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    delay: 500,
-  });
-
   return (
     <section className="my-cart-section">
-      <animated.div style={topSlide}>
+      <animated.div style={useSpring(fade)}>
         <CartWaveTop />
       </animated.div>
+      <animated.div style={useSpring(rightSlide)}>
+        <MyCartLoggedStatus />
+      </animated.div>
 
-      <MyCartLoggedStatus />
-
-      <animated.div style={opacityFade}>
+      <animated.div style={useSpring(fade)}>
         <CartWaveBottom />
       </animated.div>
     </section>

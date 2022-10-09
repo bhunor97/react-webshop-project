@@ -4,30 +4,20 @@ import HomeAnimation from "../components/HomeAnimation";
 // WAVES
 import HomeBottomWave from "../waves/home/HomeBottomWave";
 import HomeTopWave from "../waves/home/HomeTopWave";
-// FIREBASE
-import GoogleOauthLogin from "../oauth/GoogleOauthLogin";
-// REDUX-TOOLKIT
-import { useSelector } from "react-redux";
 // REACT-SPRING
 import { useSpring, animated } from "react-spring";
+// CUSTOM SPRING ANIMATIONS
+import { fade, slide } from "../components/Animations";
 
 const Home = () => {
-  const theme = useSelector((state) => state.setTheme.theme);
-
-  const opacityFade = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    delay: 500,
-  });
-
   return (
     <section className="home-section">
-      <animated.div style={opacityFade}>
+      <animated.div style={useSpring(fade)}>
         <HomeTopWave />
       </animated.div>
       <HomeAnimation />
 
-      <animated.div style={opacityFade}>
+      <animated.div style={useSpring(fade)}>
         <HomeBottomWave />
       </animated.div>
     </section>

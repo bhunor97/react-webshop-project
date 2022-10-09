@@ -1,6 +1,9 @@
 .cart-card-top,
 .cart-card-bottom {
-  width: 75%;
+  width: 80%;
+  @media (min-width: 768px) {
+    width: 100%;
+  }
 }
 
 .my-cart-section {
