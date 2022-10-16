@@ -1,7 +1,4 @@
 import React from "react";
-// ANIMATION UNFINISHED
-// import { useRef } from "react";
-// import { useAutoAnimate } from "@formkit/auto-animate/react";
 // COMPONENTS
 import EmptyCartAlert from "./EmptyCartAlert";
 import CartIcon from "../icons/CartIcon";

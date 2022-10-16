@@ -26,3 +26,15 @@ export const bottomSlide = {
   to: { marginTop: 0 },
   from: { marginTop: 1000 },
 };
+
+// export const topSlide = {
+//   to: { marginBottom: 0 },
+//   from: { marginBottom: 1000 },
+// };
+
+// export const rotate = {
+//   to: { rotate: 1 },
+//   from: { rotate: 0 },
+//   loop: { reverse: true },
+//   config: { duration: 1500 },
+// };

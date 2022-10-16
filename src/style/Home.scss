@@ -1,0 +1,68 @@
+// HOME BUTTON
+.home-btn-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// HOME BTN
+.home-btn-div {
+  padding-top: 2rem;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+}
+
+.tech-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  padding-top: 5rem;
+  max-width: 80%;
+}
+
+.tech-card-title {
+  text-align: center;
+}
+
+.tech-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+.tech-circle:hover {
+  transform: rotate(360deg) scale(1.1);
+}
+
+.tech-list-item {
+  width: 100%;
+  min-height: 4rem;
+}
+
+.tech-link {
+  text-decoration: none;
+}
+
+.tech-link:nth-child(1) {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.tech-link:nth-child(4) {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.tech-link:hover {
+  text-decoration: underline;
+}
